@@ -1,0 +1,24 @@
+{
+  "name": "uwebpro/wordpress",
+  "type": "library",
+  "description": "A simple library for WordPress",
+  "keywords": ["wordpress","WordPress", "blog", "uwebpro"],
+  "homepage": "https://github.com/willpercey-gb/SimplifiedWordpress",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Will Percey",
+      "email": "info@uwebpro.com",
+      "homepage": "https://uwebpro.com/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "classmap": [
+      "Standard"
+    ]
+  }
+}
