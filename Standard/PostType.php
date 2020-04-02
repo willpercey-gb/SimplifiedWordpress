@@ -95,6 +95,12 @@ class PostType implements Type
         return $this;
     }
 
+    public function registerTaxonimies($single, $plural)
+    {
+        (new Taxonomies($this->slug))->register($single, $plural)->init();
+        return $this;
+    }
+
     public function new(): PostType
     {
         return new self;
