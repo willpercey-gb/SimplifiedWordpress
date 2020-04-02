@@ -9,8 +9,8 @@ class Duplicator
     public function __construct()
     {
         add_action('admin_action_rd_duplicate_post_as_draft', array(__CLASS__, 'register'));
-        add_filter('post_row_actions', array(__CLASS__, '_register'), 10, 2);
-        add_filter('page_row_actions', array(__CLASS__, '_register'), 10, 2);
+        add_filter('post_row_actions', array($this, '_register'), 10, 2);
+        add_filter('page_row_actions', array($this, '_register'), 10, 2);
 
     }
 
