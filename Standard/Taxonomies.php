@@ -57,7 +57,7 @@ class Taxonomies
         ];
 
         $this->callback = function () use ($args) {
-            register_taxonomy($this->slug, strtolower($this->single), $args);
+            register_taxonomy(strtolower($this->single), $this->slug, $args);
         };
 
         return $this;
