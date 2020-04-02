@@ -6,11 +6,10 @@ namespace Standard;
 
 class Taxonomies
 {
-    public $hierarchial = true;
+    public $hierarchical = true;
     public $show_ui = true;
     public $show_admin_column = true;
     public $query_var = true;
-    public $rewrite;
 
 
     protected $single;
@@ -18,9 +17,6 @@ class Taxonomies
     protected $slugs = [];
 
 
-    /**
-     * @var \Closure
-     */
     private $callback;
 
     public function __construct($postTypeSlug)
@@ -53,11 +49,11 @@ class Taxonomies
         ];
 
         $args = [
-            'hierarchical' => true,
+            'hierarchical' => $this->hierarchical,
             'labels' => $labels,
-            'show_ui' => true,
-            'show_admin_column' => true,
-            'query_var' => true,
+            'show_ui' => $this->show_ui,
+            'show_admin_column' => $this->show_admin_column,
+            'query_var' => $this->query_var,
             'rewrite' => array('slug' => strtolower($this->single)),
         ];
 
