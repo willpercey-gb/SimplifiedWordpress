@@ -15,7 +15,7 @@ class Taxonomies
 
     protected $single;
     protected $plural;
-    protected $slug;
+    protected $slugs = [];
 
 
     /**
@@ -23,9 +23,14 @@ class Taxonomies
      */
     private $callback;
 
-    public function __construct(string $postTypeSlug)
+    public function __construct($postTypeSlug)
     {
-        $this->slug = $postTypeSlug;
+        if (is_array($postTypeSlug)) {
+            $this->slugs = $postTypeSlug;
+        }
+        if (is_string($postTypeSlug)) {
+            $this->slugs[] = $postTypeSlug;
+        }
     }
 
     public function register($single, $plural): Taxonomies
@@ -57,7 +62,7 @@ class Taxonomies
         ];
 
         $this->callback = function () use ($args) {
-            register_taxonomy(strtolower($this->single), $this->slug, $args);
+            register_taxonomy(strtolower($this->single), $this->slugs, $args);
         };
 
         return $this;
