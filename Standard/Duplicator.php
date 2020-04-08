@@ -6,6 +6,8 @@ namespace Standard;
 
 class Duplicator
 {
+    protected $excludeList = [];
+
     public function __construct()
     {
         add_action('admin_action_rd_duplicate_post_as_draft', array(__CLASS__, 'register'));
@@ -14,10 +16,17 @@ class Duplicator
 
     }
 
+    public function exclude(array $list)
+    {
+        $this->excludeList = $list;
+    }
+
     public function _register($actions, $post)
     {
         if (current_user_can('edit_posts')) {
-            $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=rd_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce') . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
+            if (!isset($_GET['post_type']) || isset($_GET['post_type']) && !in_array($_GET['post_type'], $this->excludeList)) {
+                $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=rd_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce') . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
+            }
         }
         return $actions;
     }
