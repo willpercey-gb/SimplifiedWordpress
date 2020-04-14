@@ -7,13 +7,13 @@ use Standard\Uniform\WPAjax as Ajax;
 
 class WPAjax implements Ajax
 {
-    public function setAction($action, $callback)
+    public function setAuthAction($action, $callback)
     {
         add_action('wp_ajax_' . $action, $callback);
         return $this;
     }
 
-    public function setAuthAction($action, $callback)
+    public function setAction($action, $callback)
     {
         add_action('wp_ajax_nopriv_' . $action, $callback);
         return $this;
