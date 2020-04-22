@@ -27,7 +27,7 @@ class Hash
 
     public static function __callStatic($name, $arguments)
     {
-        call_user_func_array(self::$instance->$name, $arguments);
+        return call_user_func_array(self::$instance->$name, $arguments);
     }
 
     public function __construct(string $salt, int $length = 0)
