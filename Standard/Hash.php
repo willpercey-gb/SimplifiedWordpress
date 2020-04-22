@@ -25,9 +25,9 @@ class Hash
      */
     private static $instance;
 
-    public static function __callStatic($name, $arguments)
+    public static function getInstance()
     {
-        return call_user_func_array(self::$instance->$name, $arguments);
+        return self::$instance;
     }
 
     public function __construct(string $salt, int $length = 0)
