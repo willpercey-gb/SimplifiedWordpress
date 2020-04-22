@@ -24,6 +24,10 @@ class Hash
      * @var Hash
      */
     private static $instance;
+    /**
+     * @var int
+     */
+    private $length;
 
     public static function getInstance()
     {
@@ -34,6 +38,7 @@ class Hash
     {
         $this->hashids = new Hashids($salt, $length, self::CHARS);
         $this->key = $salt;
+        $this->length = $length;
 
         self::$instance = $this;
     }
@@ -46,5 +51,15 @@ class Hash
     public function decode(string $hashid): int
     {
         return $this->hashids->decode($hashid)[0] ?? 0;
+    }
+
+    function str_rand()
+    {
+        $len = strlen(self::CHARS);
+        $str = '';
+        for ($i = 0; $i < $this->length; $i++) {
+            $str .= self::CHARS[rand(0, $len - 1)];
+        }
+        return $str;
     }
 }
