@@ -5,8 +5,9 @@ namespace Standard;
 
 
 use Hashids\Hashids;
+use Standard\Uniform\Hash as HashInterface;
 
-class Hash
+class Hash implements HashInterface
 {
     private const CHARS = '23456789ABCDEFGHJKMNPQRSTUVWXYZ';
 
@@ -53,7 +54,7 @@ class Hash
         return $this->hashids->decode($hashid)[0] ?? 0;
     }
 
-    public function str_rand()
+    public function str_rand(): string
     {
         $len = strlen(self::CHARS);
         $str = '';
