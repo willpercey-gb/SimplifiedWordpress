@@ -53,7 +53,7 @@ class Hash
         return $this->hashids->decode($hashid)[0] ?? 0;
     }
 
-    function str_rand()
+    public function str_rand()
     {
         $len = strlen(self::CHARS);
         $str = '';

@@ -25,6 +25,13 @@ class WPAjax implements Ajax
         return $this->setAuthAction($action, $callback);
     }
 
+    public function cleanQuery()
+    {
+        foreach ($_GET as $key => $value) {
+            $_GET[$key] = $_GET[$key] === 'null' ? null : $value;
+        }
+    }
+
     public function isJson($string)
     {
         json_decode($string);
