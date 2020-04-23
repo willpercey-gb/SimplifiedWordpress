@@ -41,7 +41,9 @@ class Hash implements HashInterface
         $this->key = $salt;
         $this->length = $length;
 
-        self::$instance = $this;
+        if (!self::$instance) {
+            self::$instance = $this;
+        }
     }
 
     public function encode(int $id): string
