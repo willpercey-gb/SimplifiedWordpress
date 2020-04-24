@@ -4,8 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94b5d02e2548cdfbf7f436dbe5b2be65",
+    "content-hash": "5e36536575b3c6140bb52a79e4a349db",
     "packages": [
+        {
+            "name": "dragonmantank/cron-expression",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dragonmantank/cron-expression.git",
+                "reference": "70c187e8d95c828fc93a2d09d63179c13381482e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dragonmantank/cron-expression/zipball/70c187e8d95c828fc93a2d09d63179c13381482e",
+                "reference": "70c187e8d95c828fc93a2d09d63179c13381482e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "replace": {
+                "mtdowling/cron-expression": "^1.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.11",
+                "phpunit/phpunit": "^6.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cron\\": "src/Cron/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Tankersley",
+                    "email": "chris@ctankersley.com",
+                    "homepage": "https://github.com/dragonmantank"
+                }
+            ],
+            "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
+            "keywords": [
+                "cron",
+                "schedule"
+            ],
+            "time": "2020-03-25T18:33:19+00:00"
+        },
         {
             "name": "hashids/hashids",
             "version": "4.0.0",
@@ -72,6 +120,54 @@
                 "youtube"
             ],
             "time": "2019-04-03T13:40:29+00:00"
+        },
+        {
+            "name": "uwebpro/wp-schedule",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willpercey-gb/WPSchedule.git",
+                "reference": "e96223acf3243b7e3ab2a835ff97a994b245bb22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willpercey-gb/WPSchedule/zipball/e96223acf3243b7e3ab2a835ff97a994b245bb22",
+                "reference": "e96223acf3243b7e3ab2a835ff97a994b245bb22",
+                "shasum": ""
+            },
+            "require": {
+                "dragonmantank/cron-expression": "^3.0",
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "WPSchedule"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Will Percey",
+                    "email": "info@uwebpro.com",
+                    "homepage": "https://uwebpro.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A laravel inspired cron scheduler for WordPress",
+            "homepage": "https://github.com/willpercey-gb/",
+            "keywords": [
+                "blog",
+                "cron",
+                "laravel",
+                "schedule",
+                "uwebpro",
+                "wordpress"
+            ],
+            "time": "2020-04-24T18:33:39+00:00"
         }
     ],
     "packages-dev": [],
@@ -81,7 +177,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0"
+        "php": ">=7.1",
+        "ext-json": "*"
     },
     "platform-dev": []
 }
