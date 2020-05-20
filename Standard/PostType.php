@@ -79,7 +79,7 @@ class PostType implements Type
             'show_in_rest' => $this->show_in_rest,
 
         ];
-        $this->callback = function () use ($args, $slug) {
+        $this->callback = static function () use ($args, $slug) {
             register_post_type($slug, $args);
         };
 

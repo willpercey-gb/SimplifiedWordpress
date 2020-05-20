@@ -24,7 +24,7 @@ class Duplicator
     public function _register($actions, $post)
     {
         if (current_user_can('edit_posts')) {
-            if (!isset($_GET['post_type']) || isset($_GET['post_type']) && !in_array($_GET['post_type'], $this->excludeList)) {
+            if (!isset($_GET['post_type']) || (isset($_GET['post_type']) && !in_array($_GET['post_type'], $this->excludeList, false))) {
                 $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=rd_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce') . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
             }
         }
@@ -88,8 +88,8 @@ class Duplicator
 
             wp_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
             exit;
-        } else {
-            wp_die('Post creation failed, could not find original post: ' . $post_id);
         }
+
+        wp_die('Post creation failed, could not find original post: ' . $post_id);
     }
 }

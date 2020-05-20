@@ -64,7 +64,7 @@ class Taxonomies
         return $this;
     }
 
-    public function init()
+    public function init(): void
     {
         add_action('init', $this->callback, 0);
     }

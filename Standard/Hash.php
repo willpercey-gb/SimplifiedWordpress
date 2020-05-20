@@ -61,7 +61,11 @@ class Hash implements HashInterface
         $len = strlen(self::CHARS);
         $str = '';
         for ($i = 0; $i < $this->length; $i++) {
-            $str .= self::CHARS[rand(0, $len - 1)];
+            try {
+                $str .= self::CHARS[random_int(0, $len - 1)];
+            } catch (\Exception $e) {
+                $str .= self::CHARS[rand(0, $len - 1)];
+            }
         }
         return $str;
     }
