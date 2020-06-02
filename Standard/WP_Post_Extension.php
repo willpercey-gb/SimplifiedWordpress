@@ -32,6 +32,12 @@ namespace Standard;
  * @property $comment_count
  * @property string $filter
  *
+ * @property string $page_template
+ *
+ * @property-read array $ancestors
+ * @property-read int $post_category
+ * @property-read string $tag_input
+ *
  * @method static \WP_Post get_instance(int $post_id)
  * @method array|boolean|object|\WP_Post filter(string $filter)
  * @method array to_array()
@@ -94,12 +100,12 @@ class WP_Post_Extension
     public function __call($name, $arguments)
     {
         $this->_use();
-        return call_user_func_array([\WP_Post::class, $name], $arguments);
+        return call_user_func_array([$this->the_post, $name], $arguments);
     }
 
     public static function __callStatic($name, $arguments)
     {
         self::instance()->_use();
-        return call_user_func_array(\WP_Post::class . '::' . $name, $arguments);
+        return call_user_func_array([\WP_Post::class, $name], $arguments);
     }
 }
