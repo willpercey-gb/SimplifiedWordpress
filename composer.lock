@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e36536575b3c6140bb52a79e4a349db",
+    "content-hash": "81b2ee490f5347a3ac6229fbf33a4eb4",
     "packages": [
         {
             "name": "dragonmantank/cron-expression",
@@ -120,6 +120,50 @@
                 "youtube"
             ],
             "time": "2019-04-03T13:40:29+00:00"
+        },
+        {
+            "name": "uwebpro/wp-extends",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willpercey-gb/wp-extends.git",
+                "reference": "2736b505bd0130e96b599ca3d47737a1cbe02bc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willpercey-gb/wp-extends/zipball/2736b505bd0130e96b599ca3d47737a1cbe02bc3",
+                "reference": "2736b505bd0130e96b599ca3d47737a1cbe02bc3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Extends"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Will Percey",
+                    "email": "info@uwebpro.com",
+                    "homepage": "https://uwebpro.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to extend WP_Post",
+            "homepage": "https://github.com/willpercey-gb/wp-extends",
+            "keywords": [
+                "blog",
+                "uwebpro",
+                "wordpress"
+            ],
+            "time": "2020-06-03T15:14:40+00:00"
         },
         {
             "name": "uwebpro/wp-schedule",

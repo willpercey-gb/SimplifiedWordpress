@@ -17,7 +17,8 @@
     "php": ">=7.1",
     "hashids/hashids": "^4.0",
     "ext-json": "*",
-    "uwebpro/wp-schedule": "^1.0"
+    "uwebpro/wp-schedule": "^1.0",
+    "uwebpro/wp-extends": "^1.0"
   },
   "autoload": {
     "classmap": [
