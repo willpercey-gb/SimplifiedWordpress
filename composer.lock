@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81b2ee490f5347a3ac6229fbf33a4eb4",
+    "content-hash": "e6817e50b3b01c1c37c0e2b6c6b116dc",
     "packages": [
         {
             "name": "dragonmantank/cron-expression",
@@ -123,16 +123,16 @@
         },
         {
             "name": "uwebpro/wp-extends",
-            "version": "v1.0",
+            "version": "v2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willpercey-gb/wp-extends.git",
-                "reference": "2736b505bd0130e96b599ca3d47737a1cbe02bc3"
+                "reference": "74b1778fa552b9acb47b67b3a9bdbb561e098564"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willpercey-gb/wp-extends/zipball/2736b505bd0130e96b599ca3d47737a1cbe02bc3",
-                "reference": "2736b505bd0130e96b599ca3d47737a1cbe02bc3",
+                "url": "https://api.github.com/repos/willpercey-gb/wp-extends/zipball/74b1778fa552b9acb47b67b3a9bdbb561e098564",
+                "reference": "74b1778fa552b9acb47b67b3a9bdbb561e098564",
                 "shasum": ""
             },
             "require": {
@@ -163,7 +163,7 @@
                 "uwebpro",
                 "wordpress"
             ],
-            "time": "2020-06-03T15:14:40+00:00"
+            "time": "2020-06-10T14:36:42+00:00"
         },
         {
             "name": "uwebpro/wp-schedule",
