@@ -10,13 +10,13 @@ class Duplicator
 
     public function __construct()
     {
-        add_action('admin_action_rd_duplicate_post_as_draft', array(__CLASS__, 'register'));
-        add_filter('post_row_actions', array($this, '_register'), 10, 2);
-        add_filter('page_row_actions', array($this, '_register'), 10, 2);
+        add_action('admin_action_rd_duplicate_post_as_draft', [$this, 'register']);
+        add_filter('post_row_actions', [$this, '_register'], 10, 2);
+        add_filter('page_row_actions', [$this, '_register'], 10, 2);
 
     }
 
-    public function exclude(array $list)
+    public function exclude(array $list): void
     {
         $this->excludeList = $list;
     }
@@ -25,16 +25,17 @@ class Duplicator
     {
         if (current_user_can('edit_posts')) {
             if (!isset($_GET['post_type']) || (isset($_GET['post_type']) && !in_array($_GET['post_type'], $this->excludeList, false))) {
-                $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=rd_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce') . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
+                $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=rd_duplicate_post_as_draft&post=' .
+                        $post->ID, basename(__FILE__), 'duplicate_nonce') . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
             }
         }
         return $actions;
     }
 
-    public function register()
+    public function register(): void
     {
         global $wpdb;
-        if (!(isset($_GET['post']) || isset($_POST['post']) || (isset($_REQUEST['action']) && 'rd_duplicate_post_as_draft' == $_REQUEST['action']))) {
+        if (!(isset($_GET['post']) || isset($_POST['post']) || (isset($_REQUEST['action']) && 'rd_duplicate_post_as_draft' === $_REQUEST['action']))) {
             wp_die('No post to duplicate has been supplied!');
         }
 
@@ -48,8 +49,8 @@ class Duplicator
         $current_user = wp_get_current_user();
         $new_post_author = $current_user->ID;
 
-        if (isset($post) && $post != null) {
-            $args = array(
+        if (isset($post) && $post !== null) {
+            $args = [
                 'comment_status' => $post->comment_status,
                 'ping_status' => $post->ping_status,
                 'post_author' => $new_post_author,
@@ -63,27 +64,31 @@ class Duplicator
                 'post_type' => $post->post_type,
                 'to_ping' => $post->to_ping,
                 'menu_order' => $post->menu_order
-            );
+            ];
             $new_post_id = wp_insert_post($args);
 
             $taxonomies = get_object_taxonomies($post->post_type);
 
             foreach ($taxonomies as $taxonomy) {
-                $post_terms = wp_get_object_terms($post_id, $taxonomy, array('fields' => 'slugs'));
+                $post_terms = wp_get_object_terms($post_id, $taxonomy, ['fields' => 'slugs']);
                 wp_set_object_terms($new_post_id, $post_terms, $taxonomy, false);
             }
 
-            $post_meta_infos = $wpdb->get_results("SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id");
+            $post_meta_infos = $wpdb->get_results('SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=' . $post_id);
             if (count($post_meta_infos) != 0) {
-                $sql_query = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) ";
+                $sql_query = 'INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value)';
                 foreach ($post_meta_infos as $meta_info) {
                     $meta_key = $meta_info->meta_key;
-                    if ($meta_key == '_wp_old_slug') continue;
+                    if ($meta_key === '_wp_old_slug') {
+                        continue;
+                    }
                     $meta_value = addslashes($meta_info->meta_value);
-                    $sql_query_sel[] = "SELECT $new_post_id, '$meta_key', '$meta_value'";
+                    $sql_query_sel[] = "SELECT {$new_post_id}, '{$meta_key}', '{$meta_value}'";
                 }
-                $sql_query .= implode(" UNION ALL ", $sql_query_sel);
-                $wpdb->query($sql_query);
+                if (isset($sql_query_sel)) {
+                    $sql_query .= implode(' UNION ALL ', $sql_query_sel);
+                    $wpdb->query($sql_query);
+                }
             }
 
             wp_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
