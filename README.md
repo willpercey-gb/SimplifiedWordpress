@@ -12,18 +12,18 @@
 ```php
 $ajax = new \UWebPro\WordPress\WPAjax();
 
-$ajax->setAction('load_more', function(){
-    //
-});
+$ajax->setAction('load_more', {callback});
 
-class Saveforms{
-    public function __invoke(){
-        //
-    }
-}
-$ajax->setAuthAction('save_forms', (new SaveForms()));
+$ajax->setAuthAction('save_forms', {callback});
 
 $ajax->setActionAll('get_availabilities', 'function callback here');
+```
+
+### Cron Scheduler
+
+```php
+$cron = new WPSchedule();
+$cron->schedule({callback})->hourly();
 ```
 
 ### Custom Post Types
@@ -75,4 +75,7 @@ $hash = new \UWebPro\WordPress\Hash(SECURE_AUTH_SALT, 8);
 $hash->encode($post->ID);
 //
 $hash->decode($post->ID);
+
+// Want a random string?
+$hash->str_rand();
 ```
