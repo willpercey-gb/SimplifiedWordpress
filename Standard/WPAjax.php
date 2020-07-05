@@ -1,7 +1,7 @@
 <?php
 
 
-namespace UWebPro;
+namespace UWebPro\WordPress;
 
 use UWebPro\WordPress\Uniform\WPAjax as Ajax;
 
