@@ -1,10 +1,8 @@
 <?php
 
 
-namespace Standard\Uniform;
+namespace UWebPro\WordPress\Uniform;
 
-
-use Hashids\Hashids;
 
 interface Hash
 {

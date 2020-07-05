@@ -1,8 +1,6 @@
 <?php
 
-
-namespace Standard\Uniform;
-
+namespace UWebPro\WordPress\Uniform;
 
 interface WPAjax
 {

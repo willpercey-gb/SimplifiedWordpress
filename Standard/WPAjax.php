@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Standard;
+namespace UWebPro;
 
-use Standard\Uniform\WPAjax as Ajax;
+use UWebPro\WordPress\Uniform\WPAjax as Ajax;
 
 class WPAjax implements Ajax
 {

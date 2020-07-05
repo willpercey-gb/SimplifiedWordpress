@@ -2,7 +2,7 @@
   "name": "uwebpro/wordpress",
   "type": "library",
   "description": "A simple library for WordPress",
-  "keywords": ["wordpress","WordPress", "blog", "uwebpro"],
+  "keywords": ["wordpress","WordPress", "blog", "uwebpro", "ajax", "duplicator", "posts", "types", "hashing"],
   "homepage": "https://github.com/willpercey-gb/SimplifiedWordpress",
   "license": "MIT",
   "authors": [
@@ -18,7 +18,7 @@
     "hashids/hashids": "^4.0",
     "ext-json": "*",
     "uwebpro/wp-schedule": "^1.0",
-    "uwebpro/wp-extends": "^2.0"
+    "uwebpro/wp-extends": "^3.0"
   },
   "autoload": {
     "classmap": [

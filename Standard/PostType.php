@@ -1,8 +1,8 @@
 <?php
 
-namespace Standard;
+namespace UWebPro\WordPress;
 
-use Standard\Uniform\PostTypes as Type;
+use UWebPro\WordPress\Uniform\PostTypes as Type;
 
 class PostType implements Type
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Standard;
+namespace UWebPro\WordPress;
 
 
 class Taxonomies

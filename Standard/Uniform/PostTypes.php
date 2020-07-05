@@ -1,6 +1,6 @@
 <?php
 
-namespace Standard\Uniform;
+namespace UWebPro\WordPress\Uniform;
 
 use Standard\PostType;
 

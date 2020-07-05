@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Standard;
+namespace UWebPro\WordPress;
 
 
 use Hashids\Hashids;
-use Standard\Uniform\Hash as HashInterface;
+use UWebPro\WordPress\Uniform\Hash as HashInterface;
 
 class Hash implements HashInterface
 {
