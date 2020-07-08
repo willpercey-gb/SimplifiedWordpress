@@ -2,7 +2,7 @@
 
 namespace UWebPro\WordPress\Uniform;
 
-use Standard\PostType;
+use UWebPro\WordPress\PostType;
 
 interface PostTypes
 {
