@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23eeab17fc58a1539c61743b6aab2ffa",
+    "content-hash": "b3b8ac9e01c95de03451f89a71bc0cbf",
     "packages": [
         {
             "name": "dragonmantank/cron-expression",
@@ -137,16 +137,16 @@
         },
         {
             "name": "uwebpro/wp-extends",
-            "version": "v2.2",
+            "version": "v3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willpercey-gb/wp-extends.git",
-                "reference": "61feacaf08eb89b6273b286ef56479a9b0e67db3"
+                "reference": "354370a30b9ca5ebb0e5de35fa6d0063576da68b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willpercey-gb/wp-extends/zipball/61feacaf08eb89b6273b286ef56479a9b0e67db3",
-                "reference": "61feacaf08eb89b6273b286ef56479a9b0e67db3",
+                "url": "https://api.github.com/repos/willpercey-gb/wp-extends/zipball/354370a30b9ca5ebb0e5de35fa6d0063576da68b",
+                "reference": "354370a30b9ca5ebb0e5de35fa6d0063576da68b",
                 "shasum": ""
             },
             "require": {
@@ -173,15 +173,18 @@
             "description": "A simple library to extend WP_Post",
             "homepage": "https://github.com/willpercey-gb/wp-extends",
             "keywords": [
+                "WPPost",
+                "WPQuery",
                 "blog",
+                "extend",
                 "uwebpro",
                 "wordpress"
             ],
             "support": {
                 "issues": "https://github.com/willpercey-gb/wp-extends/issues",
-                "source": "https://github.com/willpercey-gb/wp-extends/tree/v2.2"
+                "source": "https://github.com/willpercey-gb/wp-extends/tree/master"
             },
-            "time": "2020-07-05T11:49:34+00:00"
+            "time": "2020-07-05T11:52:08+00:00"
         },
         {
             "name": "uwebpro/wp-schedule",
