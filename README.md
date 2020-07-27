@@ -69,7 +69,7 @@ class PostTypes
 ```
 
 
-### Hasing
+### Hashing IDs / Numbers
 ```php
 $hash = new \UWebPro\WordPress\Hash(SECURE_AUTH_SALT, 8);
 $hash->encode($post->ID);
