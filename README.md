@@ -5,7 +5,7 @@
 (new \UWebPro\WordPress\Duplicator());
 
 // Using Advanced Custom Fields or need to exlude post types?
-(new UWebPro\Wordpress\Duplicator())->exclude(['acf-field-group']);
+(new UWebPro\WordPress\Duplicator())->exclude(['acf-field-group']);
 ```
 
 ### Ajax
